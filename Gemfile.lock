@@ -315,7 +315,7 @@ GEM
       cocaine (~> 0.5.5)
       mime-types
       mimemagic (= 0.3.0)
-    pg (0.17.1)
+    pg (0.18.4)
     plupload-rails (1.2.1)
       rails (>= 3.1)
     poltergeist (1.6.0)
