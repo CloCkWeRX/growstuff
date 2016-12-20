@@ -1,0 +1,11 @@
+#!/usr/bin/env ruby
+
+checks = [
+  'script/check_gemfile',
+  'script/check_contributors_md',
+  'rubocop --display-cop-names --rails'
+]
+
+return_values = checks.collect { |t| system(t) }
+failures = return_values.count(&:!)
+abort "#{failures} static check(s) failed" unless failures.zero?
