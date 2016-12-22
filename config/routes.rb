@@ -89,6 +89,9 @@ Growstuff::Application.routes.draw do # rubocop:disable Metrics/BlockLength
 
   get '/.well-known/acme-challenge/:id' => 'pages#letsencrypt'
 
+  # Needed for running JavaScript unit tests
+  mount JasmineRails::Engine => "/specs" if defined?(JasmineRails)
+
   # CMS stuff  -- must remain LAST
   comfy_route :cms, path: '/', sitemap: false
 end

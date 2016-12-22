@@ -121,6 +121,7 @@ group :development, :test do
   gem 'haml-i18n-extractor'
   gem "active_merchant-paypal-bogus-gateway"
   gem 'rubocop', require: false
+  gem 'jasmine-rails'                   # testing for JavaScript code
 end
 
 group :test do
