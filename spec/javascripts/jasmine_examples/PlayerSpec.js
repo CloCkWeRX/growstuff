@@ -1,27 +1,31 @@
-ong
-    this.isPlaying = false;
+var Player = function () {
+  this.isPlaying = false;
 };
 
 Player.prototype.play = function (song) {
-    this.currentlyPlayingSong = song;
-    this.isPlaying = true;
+  this.currentlyPlayingSong = song;
+  this.isPlaying = true;
 };
 
+Player.prototype.isCurrentlyPlaying = function (song) {
+  return this.isPlaying && this.currentlyPlayingSong === song;
+}
+
 Player.prototype.pause = function () {
-    this.isPlaying = false;
+  this.isPlaying = false;
 };
 
 Player.prototype.resume = function () {
-    if (!this.isPlaying) {
-        this.isPlaying = true;
-    } else {
-        throw "song is already playing";
-    }
-}
+  if (!this.isPlaying) {
+    this.isPlaying = true;
+  } else {
+    throw Error("song is already playing");
+  }
+};
 
 Player.prototype.makeFavorite = function () {
-    this.currentlyPlayingSong.persistFavoriteStatus(true);
-}
+  this.currentlyPlayingSong.persistFavoriteStatus(true);
+};
 
 var Song = function () { };
 
@@ -34,6 +38,22 @@ describe("Player", function() {
   beforeEach(function() {
     player = new Player();
     song = new Song();
+
+    jasmine.addMatchers({
+      toBePlaying: function() {
+        return {
+          compare: function(player, song) {
+            var result = { pass: player.isCurrentlyPlaying(song) };
+            if (result.pass) {
+              result.message = "Expected player not to be playing " + song;
+            } else {
+              result.message = "Expected player to be playing " + song;
+            }
+            return result;
+          }
+        }
+      }
+    });
   });
 
   it("should be able to play a Song", function() {
