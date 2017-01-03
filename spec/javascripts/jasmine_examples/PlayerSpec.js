@@ -38,22 +38,6 @@ describe("Player", function() {
   beforeEach(function() {
     player = new Player();
     song = new Song();
-
-    jasmine.addMatchers({
-      toBePlaying: function() {
-        return {
-          compare: function(player, song) {
-            var result = { pass: player.isCurrentlyPlaying(song) };
-            if (result.pass) {
-              result.message = "Expected player not to be playing " + song;
-            } else {
-              result.message = "Expected player to be playing " + song;
-            }
-            return result;
-          }
-        }
-      }
-    });
   });
 
   it("should be able to play a Song", function() {
