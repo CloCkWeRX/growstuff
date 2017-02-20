@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 
 ruby '2.3.3'
 
-gem 'rails', '~> 4.2.7'
+gem 'rails', '~> 5.0.0'
 
 gem 'bundler', '>=1.1.5'
 
@@ -107,7 +107,6 @@ group :development do
   gem 'guard-rspec'
   gem 'letter_opener'
   gem 'pry'
-  gem 'quiet_assets'
 end
 
 group :development, :test do
