@@ -1,5 +1,5 @@
 require_relative '../constants/photo_models.rb'
-class Photo < ActiveRecord::Base
+class Photo < ApplicationRecord
   belongs_to :owner, class_name: 'Member'
 
   Growstuff::Constants::PhotoModels.relations.each do |relation|

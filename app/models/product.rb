@@ -1,4 +1,4 @@
-class Product < ActiveRecord::Base
+class Product < ApplicationRecord
   has_and_belongs_to_many :orders # rubocop:disable Rails/HasAndBelongsToMany
   belongs_to :account_type
 
