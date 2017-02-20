@@ -3,7 +3,7 @@ class PlantPart < ApplicationRecord
   friendly_id :name, use: [:slugged, :finders]
 
   has_many :harvests
-  has_many :crops, -> { uniq }, through: :harvests
+  has_many :crops, -> { distinct }, through: :harvests
 
   def to_s
     name
