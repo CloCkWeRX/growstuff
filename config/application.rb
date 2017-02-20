@@ -101,9 +101,6 @@ module Growstuff
     # Javascript. Sigh. And yes, we know about user-env-compile but it
     # didn't work for us.
     config.cloudmade_key = '29a2d9e3cb3d429490a8f338b2388b1d'
-
-    config.active_record.raise_in_transactional_callbacks = true
-
   end
 end
 
